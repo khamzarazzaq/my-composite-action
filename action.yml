@@ -16,16 +16,16 @@ inputs:
     description: "Provide your Contact Number"
     required: true
 
-
 runs:
   using: "composite"
+
   steps:
     - name: Say hello
       shell: bash
       run: |
         echo "Hello, ${{ inputs.name }}!"
         echo "Email: ${{ inputs.email }}"
-        echo "Phone: ${{ inputs,phone }}"
+        echo "Phone: ${{ inputs.phone }}"
         echo "This is my composite action."
 
     - name: Print Email
@@ -36,7 +36,7 @@ runs:
     - name: Print Phone
       shell: bash
       run: |
-        echo "Email: ${{ inputs.phone }}"
+        echo "Phone: ${{ inputs.phone }}"
 
     - name: Print current directory
       shell: bash
