@@ -1,0 +1,54 @@
+name: "My Composite Action"
+description: "A simple reusable composite GitHub Action"
+author: "Test Author"
+
+inputs:
+  name:
+    description: "Name to greet"
+    required: false
+    default: "World"
+
+  email:
+    description: "Provide your Email"
+    required: true
+
+  phone:
+    description: "Provide your Contact Number"
+    required: true
+
+
+runs:
+  using: "composite"
+  steps:
+    - name: Say hello
+      shell: bash
+      run: |
+        echo "Hello, ${{ inputs.name }}!"
+        echo "Email: ${{ inputs.email }}"
+        echo "Phone: ${{ inputs,phone }}"
+        echo "This is my composite action."
+
+    - name: Print Email
+      shell: bash
+      run: |
+        echo "Email: ${{ inputs.email }}"
+
+    - name: Print Phone
+      shell: bash
+      run: |
+        echo "Email: ${{ inputs.phone }}"
+
+    - name: Print current directory
+      shell: bash
+      run: |
+        pwd
+
+    - name: List files
+      shell: bash
+      run: |
+        ls -la
+
+    - name: Print operating system
+      shell: bash
+      run: |
+        uname -a
