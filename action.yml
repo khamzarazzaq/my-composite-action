@@ -52,3 +52,15 @@ runs:
       shell: bash
       run: |
         uname -a
+
+    - name: Run JS action
+      id: js
+      uses: khamzarazzaq/my-js-action@main
+      with:
+        name: ${{ inputs.name }}
+        email: ${{ inputs.email }}
+        phone: ${{ inputs.phone }}
+
+    - name: Use its output
+      shell: bash
+      run: echo "JS action said: ${{ steps.js.outputs.greeting }}"
