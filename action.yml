@@ -63,4 +63,5 @@ runs:
 
     - name: Use its output
       shell: bash
-      run: echo "JS action said: ${{ steps.js.outputs.greeting }}"
+      run: |
+        echo "JS action said: ${{ steps.js.outputs.greeting }}"
